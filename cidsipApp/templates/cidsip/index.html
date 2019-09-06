@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<style>
+			td{
+				padding: 15px;
+			}
+		</style>
+		<title>Ip en desa</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Acceder a Desarrollo</h1>
+			<br>
+			<table class="table table-striped">
+				<tr>
+					<th>Nombre</th>
+					<th>MAC</th>
+					<th>IP</th>
+					<th>#</th>
+				</tr>
+				{% for compu in computadoras%}
+				<tr>
+					<td>{{ compu.nombre }}</td>
+					<td>{{ compu.mac|slice:"0:5" }}..</td>
+					<td>{{ compu.ip }}</td>
+					<td><a class="btn btn-success" href="{{ compu.ip }}:3000/sge-web/#!/" target="_blank">Acceder</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>
