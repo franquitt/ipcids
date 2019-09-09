@@ -25,7 +25,7 @@ SECRET_KEY = 'tr0y0a7=itidgm1!4(ketxkdf-sbspjhauzz3o1ygbgb(#pn!2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["cidsip.us.to"]
 
 
 # Application definition
