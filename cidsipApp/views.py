@@ -9,13 +9,7 @@ def index_view(request):
     return render(request, "cidsip/index.html", context)
 
 @csrf_exempt
-def actualizar(request):
-	#50-46-5D-09-8E-32/172.16.18.8
-	print(request.POST)
-	mac=request.POST.get("mac", "")
-	ip=request.POST.get("ip", "")
-	print(mac)
-	print(ip)
+def actualizar(request, mac, ip):
 	if ip=="" or mac =="":
 		return JsonResponse({"error": "Faltan datos"})
 

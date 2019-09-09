@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index_view, name = 'index'),
-    path('actualizar', views.actualizar, name = 'actualizar'),
+    path('actualizar/<slug:mac>/<slug:ip>', views.actualizar, name = 'actualizar'),
 ]
