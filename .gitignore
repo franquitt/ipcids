@@ -1,0 +1,6 @@
+__pycache__/
+cidsip/__pycache__/
+cidsipApp/migrations/
+*.~lock*
+exportaciones/*
+db.sqlite3
