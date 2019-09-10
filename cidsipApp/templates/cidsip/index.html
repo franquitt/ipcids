@@ -27,6 +27,7 @@
 				<thead>
 					<tr>
 						<th>Nombre</th>
+						<th>Proyecto</th>
 						<th>MAC</th>
 						<th>IP</th>
 						<th>#</th>
@@ -36,6 +37,7 @@
 					{% for compu in computadoras%}
 					<tr>
 						<td>{{ compu.nombre }}</td>
+						<td>{{ compu.proyecto.nombre }}</td>
 						<td>{{ compu.mac|slice:"0:8" }}..</td>
 						<td>{{ compu.ip }}</td>
 						<td><a class="btn btn-success" href="http://{{ compu.ip }}:3000/sge-web/#!/" target="_blank">Acceder</a></td>
