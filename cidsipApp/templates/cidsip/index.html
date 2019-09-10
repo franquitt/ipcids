@@ -10,6 +10,12 @@
 			td{
 				padding: 15px;
 			}
+			th{
+				text-align: center;
+			}
+			td{
+				text-align: center;
+			}
 		</style>
 		<title>Ip en desa</title>
 	</head>
@@ -18,20 +24,24 @@
 			<h1>Acceder a Desarrollo</h1>
 			<br>
 			<table class="table table-striped" id="tablita">
-				<tr>
-					<th>Nombre</th>
-					<th>MAC</th>
-					<th>IP</th>
-					<th>#</th>
-				</tr>
-				{% for compu in computadoras%}
-				<tr>
-					<td>{{ compu.nombre }}</td>
-					<td>{{ compu.mac|slice:"0:5" }}..</td>
-					<td>{{ compu.ip }}</td>
-					<td><a class="btn btn-success" href="http://{{ compu.ip }}:3000/sge-web/#!/" target="_blank">Acceder</a></td>
-				</tr>
-				{% endfor %}
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>MAC</th>
+						<th>IP</th>
+						<th>#</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for compu in computadoras%}
+					<tr>
+						<td>{{ compu.nombre }}</td>
+						<td>{{ compu.mac|slice:"0:8" }}..</td>
+						<td>{{ compu.ip }}</td>
+						<td><a class="btn btn-success" href="http://{{ compu.ip }}:3000/sge-web/#!/" target="_blank">Acceder</a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
 			</table>
 		</div>
 		
