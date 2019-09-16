@@ -18,7 +18,7 @@ def actualizar(request, mac, ip):
 	except Computadora.DoesNotExist:
 		return JsonResponse({"error": "No existe la computadora"})
 
-	compu.ip="172.16.171."+ip
+	compu.ip=ip.replace("-", ".")
 	compu.save()
 
 	return JsonResponse({"error": "ok"})
