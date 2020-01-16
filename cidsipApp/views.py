@@ -8,6 +8,9 @@ def index_view(request):
     context = {"computadoras":Computadora.objects.all()}
     return render(request, "cidsip/index.html", context)
 
+def docker_cheatsheet(request):
+    return render(request, "cidsip/docker_cheatsheet.html", {})
+
 @csrf_exempt
 def actualizar(request, mac, ip):
 	if ip=="" or mac =="":

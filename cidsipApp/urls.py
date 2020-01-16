@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path('', views.index_view, name = 'index'),
     path('actualizar/<slug:mac>/<slug:ip>', views.actualizar, name = 'actualizar'),
+    path('docker_cheatsheet', views.docker_cheatsheet, name='docker_cheatsheet')
 ]

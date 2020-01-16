@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="docker-cheatsheet--book">Docker cheatsheet!  📖</h1>
+<h2 id="imagen-vs-contenedor-ship">Imagen vs Contenedor 🚢</h2>
+<p>La imagen es un conjunto de archivos sin estado, mientras que el contenedor docker es una instancia de la imagen en ejecución.</p>
+<h2 id="administración-de-imágenes-y-contenedores-crystal_ball">Administración de imágenes y contenedores 🔮</h2>
+<p><strong>Revisar las imágenes locales</strong> 📚</p>
+<pre><code>docker images
+</code></pre>
+<p>devuelve lo siguiente:</p>
+<pre><code>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ubuntu              latest              549b9b86cb8d        3 weeks ago         64.2MB
+hello-world         latest              fce289e99eb9        12 months ago       1.84kB
+</code></pre>
+<p><strong>Revisar historial de contenedores</strong> 🕝</p>
+<pre><code>docker container ls -a
+</code></pre>
+<p>devuelve lo siguiente:</p>
+<pre><code>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS               NAMES
+6bf76ecdaacf        ubuntu              "/bin/bash"         About an hour ago   Exited (0) 9 minutes ago                             wizardly_joliot
+0de077666ae0        ubuntu              "/bin/bash"         About an hour ago   Exited (127) About an hour ago                       heuristic_rhodes
+1a0756d83e69        ubuntu              "/bin/bash"         About an hour ago   Exited (0) About an hour ago                         confident_cori
+eab451b41cd4        ubuntu              "/bin/bash"         About an hour ago   Exited (0) About an hour ago                         boring_sinoussi
+13c61898ac65        ubuntu              "/bin/bash"         About an hour ago   Exited (0) About an hour ago                         romantic_khorana
+990b2cdf0a60        hello-world         "/hello"            About an hour ago   Exited (0) About an hour ago                         festive_lovelace
+</code></pre>
+<p><strong>Ejecutar una imagen</strong> 🚣</p>
+<ul>
+<li>Sin modo de interacción
+<ul>
+<li><code>docker run nombre-imagen</code></li>
+</ul>
+</li>
+<li>Con modo interactivo
+<ul>
+<li><code>docker run -it nombre-imagen</code></li>
+</ul>
+</li>
+</ul>
+<p>El modo interactivo permite utilizar la CLI de la imagen.</p>
+<p><strong>Revisar los contenedores en ejecución</strong> 🚤</p>
+<pre><code>docker ps
+</code></pre>
+<p>devuelve lo siguiente:</p>
+<pre><code>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+03bb82a71f59        ubuntu              "/bin/bash"         22 seconds ago      Up 21 seconds                           pensive_gates
+</code></pre>
+<p><strong>Intervenir en un contenedor</strong> 💉<br>
+Teniendo un contenedor en ejecución, es posible lanzar procesos dentro del mismo desde el host con el comando</p>
+<pre><code>docker exec -it nombre-contenedor comando
+</code></pre>
+<p>por ejemplo</p>
+<pre><code>docker exec -it wizardly_joliot /bin/bash
+</code></pre>
+<p><strong>Eliminar contenedores y liberar recursos</strong> ♻️<br>
+Para la eliminación es necesario conocer el ID del contenedor, el cual se puede obtener listando los contenedores como se explicó anteriormente.</p>
+<ul>
+<li>Para eliminar contenedores individualmente
+<ul>
+<li><code>docker container rm id-cont-1 id-cont-n</code></li>
+</ul>
+</li>
+<li>Para eliminar contenedores detenidos e imágenes residuales
+<ul>
+<li><code>docker system prune</code></li>
+</ul>
+</li>
+<li>Para eliminar los volúmenes residuales de los contenedores
+<ul>
+<li><code>docker volume rm $(docker volume ls -qf dangling=true)</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="referencias-globe_with_meridians">Referencias 🌐</h2>
+<ul>
+<li><a href="https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/">https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-debian-9-es">https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-debian-9-es</a></li>
+<li><a href="https://stackoverflow.com/questions/46672001/is-it-safe-to-clean-docker-overlay2">https://stackoverflow.com/questions/46672001/is-it-safe-to-clean-docker-overlay2</a></li>
+</ul>
+</div>
+</body>
+
+</html>
+
